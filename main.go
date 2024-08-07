@@ -110,8 +110,15 @@ func main() {
 func Decode(num1 string) int {
 	translateRoman := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 	var decNum, tmpNum int
+
 	for i := len(num1) - 1; i >= 0; i-- {
+
+		if i >= 3 && num1 != "VIII" {
+			panic("Неправильная римская цифра")
+		}
+
 		romanDigit := num1[i]
+
 		decDigit := translateRoman[romanDigit]
 		if decDigit < tmpNum {
 			decNum -= decDigit
@@ -130,6 +137,9 @@ func Decode2(num2 string) int {
 	translateRoman := map[byte]int{'I': 1, 'V': 5, 'X': 10}
 	var decNum, tmpNum int
 	for i := len(num2) - 1; i >= 0; i-- {
+		if i >= 3 && num2 != "VIII" {
+			panic("Неправильная римская цифра")
+		}
 		romanDigit := num2[i]
 		decDigit := translateRoman[romanDigit]
 
