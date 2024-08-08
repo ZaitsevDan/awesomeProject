@@ -18,6 +18,9 @@ func calculateAr(num1, opp, num2 string) int {
 	if err != nil {
 		panic(err)
 	}
+	if num11 == 0 || num22 == 0 {
+		panic("Операнды не могут быть равны нулю")
+	}
 	if num11 > 10 || num22 > 10 {
 		panic("Один или два операнда больше 10")
 	}
